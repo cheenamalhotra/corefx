@@ -47,6 +47,7 @@ namespace System.IO.Pipelines
         public virtual System.IO.Stream AsStream(bool leaveOpen = false) { throw null; }
         public abstract void CancelPendingRead();
         public abstract void Complete(System.Exception exception = null);
+        public virtual System.Threading.Tasks.ValueTask CompleteAsync(System.Exception exception = null) { throw null; }
         public virtual System.Threading.Tasks.Task CopyToAsync(System.IO.Pipelines.PipeWriter destination, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
         public virtual System.Threading.Tasks.Task CopyToAsync(System.IO.Stream destination, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
         public static System.IO.Pipelines.PipeReader Create(System.IO.Stream stream, System.IO.Pipelines.StreamPipeReaderOptions readerOptions = null) { throw null; }
@@ -68,6 +69,7 @@ namespace System.IO.Pipelines
         public virtual System.IO.Stream AsStream(bool leaveOpen = false) { throw null; }
         public abstract void CancelPendingFlush();
         public abstract void Complete(System.Exception exception = null);
+        public virtual System.Threading.Tasks.ValueTask CompleteAsync(System.Exception exception = null) { throw null; }
         protected internal virtual System.Threading.Tasks.Task CopyFromAsync(System.IO.Stream source, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
         public static System.IO.Pipelines.PipeWriter Create(System.IO.Stream stream, System.IO.Pipelines.StreamPipeWriterOptions writerOptions = null) { throw null; }
         public abstract System.Threading.Tasks.ValueTask<System.IO.Pipelines.FlushResult> FlushAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -93,15 +95,15 @@ namespace System.IO.Pipelines
     {
         public StreamPipeReaderOptions(System.Buffers.MemoryPool<byte> pool = null, int bufferSize = 4096, int minimumReadSize = 1024, bool leaveOpen = false) { }
         public int BufferSize { get { throw null; } }
+        public bool LeaveOpen { get { throw null; } }
         public int MinimumReadSize { get { throw null; } }
         public System.Buffers.MemoryPool<byte> Pool { get { throw null; } }
-        public bool LeaveOpen { get { throw null; } }
     }
     public partial class StreamPipeWriterOptions
     {
         public StreamPipeWriterOptions(System.Buffers.MemoryPool<byte> pool = null, int minimumBufferSize = 4096, bool leaveOpen = false) { }
+        public bool LeaveOpen { get { throw null; } }
         public int MinimumBufferSize { get { throw null; } }
         public System.Buffers.MemoryPool<byte> Pool { get { throw null; } }
-        public bool LeaveOpen { get { throw null; } }
     }
 }
